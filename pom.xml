@@ -106,6 +106,19 @@
                     <fork>true</fork>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <url>http://localhost:8080/manager/text</url> <!-- tomcat管理路径 -->
+                    <server>tomcat9</server> <!-- 与settings.xml文件中Server的id相同 -->
+
+                    <username>tomcat</username>
+                    <password>tomcat</password>
+                    <path>/web</path> <!-- 应用的部署位置 -->
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
