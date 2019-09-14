@@ -16,9 +16,14 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloController {
 
     @RequestMapping("/hello")
-    public Article hello(){
-        Article article1 = Article.builder().id(3L).author("莫言211122").build();
-        log.info("测试一下" + article1);
-        return article1;
+    public String hello(){
+        return "Hello 阿博....";
+    }
+
+    @RequestMapping("/article")
+    public Article article(){
+        Article article = Article.builder().id(3L).author("莫言211122").build();
+        log.info("测试一下" + article);
+        return article;
     }
 }
