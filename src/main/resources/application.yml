@@ -1,7 +1,13 @@
+#端口号设置
 spring:
   profiles:
     active: dev
 
+  #全局时间格式配置
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
+
+logging:
+  level:
+    com.hb.springboot: debug
