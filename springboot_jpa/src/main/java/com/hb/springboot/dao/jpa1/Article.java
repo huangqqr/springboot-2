@@ -1,4 +1,4 @@
-package com.hb.springboot.dao;
+package com.hb.springboot.dao.jpa1;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

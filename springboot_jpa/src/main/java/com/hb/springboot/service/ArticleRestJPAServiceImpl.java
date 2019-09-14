@@ -1,7 +1,9 @@
 package com.hb.springboot.service;
 
-import com.hb.springboot.dao.Article;
-import com.hb.springboot.dao.ArticleRepository;
+import com.hb.springboot.dao.jpa1.Article;
+import com.hb.springboot.dao.jpa1.ArticleRepository;
+import com.hb.springboot.dao.jpa2.Message;
+import com.hb.springboot.dao.jpa2.MessageRepository;
 import com.hb.springboot.model.ArticleVO;
 import com.hb.springboot.utils.DozerUtils;
 import lombok.extern.slf4j.Slf4j;
@@ -20,6 +22,9 @@ public class ArticleRestJPAServiceImpl implements ArticleRestService {
     private ArticleRepository articleRepository;
 
     @Resource
+    private MessageRepository messageRepository;
+
+    @Resource
     private Mapper dozerMapper;
 
     public ArticleVO saveArticle(ArticleVO article) {
@@ -27,6 +32,10 @@ public class ArticleRestJPAServiceImpl implements ArticleRestService {
         Article articlePO = dozerMapper.map(article,Article.class);
         articleRepository.save(articlePO);
 
+        Message message = new Message();
+        message.setContent("多数据");
+        message.setName("JPA");
+        messageRepository.save(message);
         return  article;
     }
 

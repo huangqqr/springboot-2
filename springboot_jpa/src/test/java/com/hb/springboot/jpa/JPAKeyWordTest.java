@@ -1,7 +1,7 @@
 package com.hb.springboot.jpa;
 
-import com.hb.springboot.dao.Article;
-import com.hb.springboot.dao.ArticleRepository;
+import com.hb.springboot.dao.jpa1.Article;
+import com.hb.springboot.dao.jpa1.ArticleRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
