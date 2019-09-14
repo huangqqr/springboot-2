@@ -33,6 +33,7 @@ public class Article {
     @Column(length = 512)
     private String content;
 
+    @Column(name = "create_time")
     private Date createTime;
 
 
