@@ -17,6 +17,7 @@ public class HelloController {
 
     @RequestMapping("/hello")
     public String hello(){
+        log.info("Hello 阿博");
         return "Hello 阿博....";
     }
 

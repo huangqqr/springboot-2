@@ -61,7 +61,7 @@ public class ArticleRestController {
         return Result.success(article);
     }
 
-    @ApiOperation(value = "查看文章", notes = "查看的文章", tags = "Article",httpMethod = "POST")
+    @ApiOperation(value = "查看文章", notes = "查看的文章", tags = "Article",httpMethod = "GET")
     @ApiResponses({
             @ApiResponse(code=200,message="成功",response=Result.class),
             @ApiResponse(code=400,message="用户输入错误",response=Result.class),
@@ -70,6 +70,7 @@ public class ArticleRestController {
     @GetMapping( "/article/{id}")
     public Result getArticle(@PathVariable Long id) {
         Article article1 = Article.builder().id(1L).author("zimug").content("spring boot 2.深入浅出").title("t1").build();
+        System.out.println(article1);
         return Result.success(article1);
     }
 }
