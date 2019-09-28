@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import javax.validation.constraints.NotEmpty;
 
 import java.util.List;
 
@@ -27,6 +28,7 @@ public class Article {
     //@JsonProperty("auther") //给属性起一个别名
     private String author;
     private String title;
+    @NotEmpty(message = "文章内容不能为空，请检查您的输入")
     private String content;
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     private String createTime;

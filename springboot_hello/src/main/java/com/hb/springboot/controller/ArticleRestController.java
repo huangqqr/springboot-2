@@ -1,7 +1,7 @@
 package com.hb.springboot.controller;
 
+import com.hb.springboot.config.exception.Result;
 import com.hb.springboot.model.Article;
-import com.hb.springboot.model.Result;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 
 @Api(tags = "文章信息API")
 @Slf4j
@@ -55,7 +56,7 @@ public class ArticleRestController {
             @ApiResponse(code=500,message="系统内部错误",response=Result.class)
     })
     @PutMapping("/article/{id}")
-    public Result updateArticle(@PathVariable Long id, @RequestBody Article article) {
+    public Result updateArticle(@PathVariable Long id, @Valid @RequestBody Article article) {
         article.setId(id);
         log.info("updateArticle：{}",article);
         return Result.success(article);

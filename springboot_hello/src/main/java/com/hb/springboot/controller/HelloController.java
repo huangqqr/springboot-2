@@ -1,9 +1,13 @@
 package com.hb.springboot.controller;
 
+import com.hb.springboot.config.exception.Result;
 import com.hb.springboot.model.Article;
+import com.hb.springboot.service.ExceptionService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
 
 /**
  * @description: HelloWord
@@ -14,6 +18,9 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @RestController
 public class HelloController {
+
+    @Resource
+    ExceptionService exceptionService;
 
     @RequestMapping("/hello")
     public String hello(){
@@ -26,5 +33,20 @@ public class HelloController {
         Article article = Article.builder().id(3L).author("莫言211122").build();
         log.info("测试一下" + article);
         return article;
+    }
+
+    @RequestMapping("/ex/system")
+    public Result system() {
+
+        exceptionService.systemBizError();
+
+        return Result.success();
+    }
+
+
+    @RequestMapping("/ex/user")
+    public Result user(Integer input) {
+
+        return Result.success(exceptionService.userBizError(input));
     }
 }
