@@ -12,5 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 public class WebApi {
     public static void main(String[] args){
       log.info("HelloWord");
+      log.info("HelloWord....阿博");
+
     }
 }
