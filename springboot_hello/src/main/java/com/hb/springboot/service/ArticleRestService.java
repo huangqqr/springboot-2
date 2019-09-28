@@ -9,9 +9,7 @@ import org.springframework.stereotype.Service;
 public class ArticleRestService {
 
     public String saveArticle( Article article) {
-
         log.info("saveArticle：{}",article);
-
         return  "测试";
     }
 }
