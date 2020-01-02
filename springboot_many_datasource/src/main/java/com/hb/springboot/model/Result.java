@@ -8,14 +8,13 @@ public class Result {
 
     @ApiModelProperty("是否成功")
     private boolean isok;
-    private int code;   
+    private int code;
     private String message;
     private Object data;
 
     private Result() {
 
     }
-
 
 
     public static Result success() {

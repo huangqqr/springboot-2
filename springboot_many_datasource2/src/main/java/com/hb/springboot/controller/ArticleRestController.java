@@ -25,15 +25,15 @@ import javax.annotation.Resource;
 @RequestMapping("/rest")
 public class ArticleRestController {
 
-    @Resource(name="articleRestJDBCServiceImpl")
+    @Resource(name = "articleRestJDBCServiceImpl")
     ArticleRestService articleRestService;
 
 
-    @ApiOperation(value = "添加文章", notes = "添加新的文章", tags = "Article",httpMethod = "POST")
+    @ApiOperation(value = "添加文章", notes = "添加新的文章", tags = "Article", httpMethod = "POST")
     @ApiResponses({
-            @ApiResponse(code=200,message="成功",response=Result.class),
-            @ApiResponse(code=400,message="用户输入错误",response=Result.class),
-            @ApiResponse(code=500,message="系统内部错误",response=Result.class)
+            @ApiResponse(code = 200, message = "成功", response = Result.class),
+            @ApiResponse(code = 400, message = "用户输入错误", response = Result.class),
+            @ApiResponse(code = 500, message = "系统内部错误", response = Result.class)
     })
     //@RequestMapping(value = "/article", method = POST, produces = "application/json")
     @PostMapping("/article")
@@ -45,9 +45,9 @@ public class ArticleRestController {
 
         log.info("articleRestService return :" + articleRestService.saveArticle(article));
 
-        return  Result.success(article);
+        return Result.success(article);
     }
- 
+
     //@RequestMapping(value = "/article/{id}", method = DELETE, produces = "application/json")
     @DeleteMapping("/article/{id}")
     public @ResponseBody
@@ -57,7 +57,7 @@ public class ArticleRestController {
 
         return Result.success(id);
     }
- 
+
     //@RequestMapping(value = "/article/{id}", method = PUT, produces = "application/json")
     @PutMapping("/article/{id}")
     public @ResponseBody
@@ -68,9 +68,9 @@ public class ArticleRestController {
 
         return Result.success(article);
     }
- 
+
     //@RequestMapping(value = "/article/{id}", method = GET, produces = "application/json")
-    @GetMapping( "/article/{id}")
+    @GetMapping("/article/{id}")
     public @ResponseBody
     Result getArticle(@PathVariable Long id) {
 
@@ -79,7 +79,7 @@ public class ArticleRestController {
 
 
     //@RequestMapping(value = "/article", method = GET, produces = "application/json")
-    @GetMapping( "/article")
+    @GetMapping("/article")
     public @ResponseBody
     Result getAllArticle() {
 

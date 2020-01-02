@@ -15,7 +15,7 @@ public class CustomYamlTest {
     Family family;
 
     @Test
-    public void hello(){
+    public void hello() {
         System.out.println(family.toString());
     }
 }

@@ -17,7 +17,9 @@ public class MailController {
     private MailService mailService;
 
 
-    /**事件的产生方*/
+    /**
+     * 事件的产生方
+     */
     @RequestMapping("/mail")
     public String hello() {
         mailService.sendMail();

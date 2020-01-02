@@ -2,7 +2,9 @@ package com.hb.springboot.mapper;
 
 import com.hb.springboot.model.Article;
 import com.hb.springboot.model.ArticleExample;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface ArticleDao {

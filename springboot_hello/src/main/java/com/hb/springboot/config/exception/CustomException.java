@@ -2,11 +2,12 @@ package com.hb.springboot.config.exception;
 
 public class CustomException extends RuntimeException {
     //异常错误编码
-    private int code ;
+    private int code;
     //异常信息
     private String message;
 
-    private CustomException(){}
+    private CustomException() {
+    }
 
     public CustomException(CustomExceptionType exceptionTypeEnum, String message) {
         this.code = exceptionTypeEnum.getCode();

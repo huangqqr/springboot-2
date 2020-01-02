@@ -15,7 +15,7 @@ public class JPAKeyWordTest {
 
     @Resource
     private ArticleRepository articleRepository;
-    
+
     @Test
     public void userTest() {
         Article article = articleRepository.findByAuthor("黄阿博");

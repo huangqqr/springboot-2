@@ -23,13 +23,13 @@ public class HelloController {
     ExceptionService exceptionService;
 
     @RequestMapping("/hello")
-    public String hello(){
+    public String hello() {
         log.info("Hello 阿博");
         return "Hello 阿博....";
     }
 
     @RequestMapping("/article")
-    public Article article(){
+    public Article article() {
         Article article = Article.builder().id(3L).author("莫言211122").build();
         log.info("测试一下" + article);
         return article;

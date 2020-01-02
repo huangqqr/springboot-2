@@ -28,8 +28,9 @@ public class SendMailImpl implements SendMail {
 
     /**
      * 发送文本邮件
-     * @param toAddr 地址
-     * @param title  主题
+     *
+     * @param toAddr  地址
+     * @param title   主题
      * @param content 内容
      */
     @Override
@@ -52,8 +53,9 @@ public class SendMailImpl implements SendMail {
 
     /**
      * 发送html邮件
-     * @param toAddr 地址
-     * @param title 主题
+     *
+     * @param toAddr  地址
+     * @param title   主题
      * @param content 内容
      */
     @Override
@@ -79,12 +81,13 @@ public class SendMailImpl implements SendMail {
 
     /**
      * 发送带附件的邮件
-     * @param toAddr 地址
-     * @param title 主题
-     * @param content 内容
+     *
+     * @param toAddr   地址
+     * @param title    主题
+     * @param content  内容
      * @param filePath 文件地址
      */
-    public void sendAttachmentsMail(String toAddr, String title, String content, String filePath){
+    public void sendAttachmentsMail(String toAddr, String title, String content, String filePath) {
         MimeMessage message = mailSender.createMimeMessage();
 
         try {
@@ -111,13 +114,14 @@ public class SendMailImpl implements SendMail {
 
     /**
      * 发送正文中有静态资源（图片）的邮件
-     * @param toAddr 地址
-     * @param title 主题
+     *
+     * @param toAddr  地址
+     * @param title   主题
      * @param content 内容
      * @param rscPath 静态资源地址
-     * @param rscId 资源id (可能有多个图片)
+     * @param rscId   资源id (可能有多个图片)
      */
-    public void sendInlineResourceMail(String toAddr, String title, String content, String rscPath, String rscId){
+    public void sendInlineResourceMail(String toAddr, String title, String content, String rscPath, String rscId) {
         MimeMessage message = mailSender.createMimeMessage();
 
         try {

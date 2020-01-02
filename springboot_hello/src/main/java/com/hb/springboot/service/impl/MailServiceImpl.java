@@ -16,8 +16,8 @@ import javax.annotation.Resource;
 
 @Service
 public class MailServiceImpl implements MailService {
-        @Resource
-        ConfigurableApplicationContext applicationContext;
+    @Resource
+    ConfigurableApplicationContext applicationContext;
 
     @Override
     public void sendMail() {

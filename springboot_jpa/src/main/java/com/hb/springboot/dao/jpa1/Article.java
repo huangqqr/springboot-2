@@ -17,17 +17,17 @@ import java.util.Date;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name="article")
+@Table(name = "article")
 public class Article {
 
     @Id
     @GeneratedValue
     private Long id;
 
-    @Column(nullable = false,length = 32)
+    @Column(nullable = false, length = 32)
     private String author;
 
-    @Column(nullable = false, unique = true,length = 32)
+    @Column(nullable = false, unique = true, length = 32)
     private String title;
 
     @Column(length = 512)

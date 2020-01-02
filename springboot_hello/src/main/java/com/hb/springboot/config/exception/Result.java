@@ -3,7 +3,7 @@ package com.hb.springboot.config.exception;
 public class Result {
 
     private boolean isok;
-    private int code;   
+    private int code;
     private String message;
     private Object data;
 
@@ -17,11 +17,11 @@ public class Result {
         Result resultBean = new Result();
         resultBean.setIsok(false);
         resultBean.setCode(e.getCode());
-        if(e.getCode() == CustomExceptionType.USER_INPUT_ERROR.getCode()){
+        if (e.getCode() == CustomExceptionType.USER_INPUT_ERROR.getCode()) {
             resultBean.setMessage(e.getMessage());
-        }else if(e.getCode() == CustomExceptionType.SYSTEM_ERROR.getCode()){
+        } else if (e.getCode() == CustomExceptionType.SYSTEM_ERROR.getCode()) {
             resultBean.setMessage(e.getMessage() + ",系统出现异常，请联系管理员电话：1375610xxxx进行处理!");
-        }else{
+        } else {
             resultBean.setMessage("系统出现未知异常，请联系管理员电话：13756108xxx进行处理!");
         }
         return resultBean;

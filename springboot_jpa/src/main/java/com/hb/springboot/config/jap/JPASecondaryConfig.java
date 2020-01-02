@@ -32,10 +32,9 @@ public class JPASecondaryConfig {
 
     }
 
-  
 
     @Bean(name = "entityManagerFactorySecondary")
-    public LocalContainerEntityManagerFactoryBean entityManagerFactorySecondary (EntityManagerFactoryBuilder builder) {
+    public LocalContainerEntityManagerFactoryBean entityManagerFactorySecondary(EntityManagerFactoryBuilder builder) {
 
         return builder
                 .dataSource(secondaryDataSource)

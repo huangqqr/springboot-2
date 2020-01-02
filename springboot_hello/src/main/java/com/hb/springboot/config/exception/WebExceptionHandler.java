@@ -7,13 +7,13 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-/** 
-* @Description: 全局异常处理器
-* @Param:  
-* @return:  
-* @Author: huangbo
-* @Date: 2019/9/16 
-*/
+/**
+ * @Description: 全局异常处理器
+ * @Param:
+ * @return:
+ * @Author: huangbo
+ * @Date: 2019/9/16
+ */
 @ControllerAdvice
 public class WebExceptionHandler {
 
@@ -21,7 +21,7 @@ public class WebExceptionHandler {
     @ResponseBody
     public Result handleBindException(MethodArgumentNotValidException ex) {
         FieldError fieldError = ex.getBindingResult().getFieldError();
-        return Result.error(new CustomException(CustomExceptionType.USER_INPUT_ERROR,fieldError.getDefaultMessage()));
+        return Result.error(new CustomException(CustomExceptionType.USER_INPUT_ERROR, fieldError.getDefaultMessage()));
     }
 
 
@@ -29,15 +29,15 @@ public class WebExceptionHandler {
     @ResponseBody
     public Result handleBindException(BindException ex) {
         FieldError fieldError = ex.getBindingResult().getFieldError();
-        return Result.error(new CustomException(CustomExceptionType.USER_INPUT_ERROR,fieldError.getDefaultMessage()));
+        return Result.error(new CustomException(CustomExceptionType.USER_INPUT_ERROR, fieldError.getDefaultMessage()));
     }
 
     @ExceptionHandler(CustomException.class)
     @ResponseBody
     public Result customerException(CustomException e) {
-        if(e.getCode() == CustomExceptionType.SYSTEM_ERROR.getCode()){
-                 //400异常不需要持久化，将异常信息以友好的方式告知用户就可以
-                //TODO 将500异常信息持久化处理，方便运维人员处理
+        if (e.getCode() == CustomExceptionType.SYSTEM_ERROR.getCode()) {
+            //400异常不需要持久化，将异常信息以友好的方式告知用户就可以
+            //TODO 将500异常信息持久化处理，方便运维人员处理
         }
         return Result.error(e);
     }
@@ -49,7 +49,7 @@ public class WebExceptionHandler {
         //TODO 将异常信息持久化处理，方便运维人员处理
 
         //没有被程序员发现，并转换为CustomException的异常，都是其他异常或者未知异常.
-        return Result.error(new CustomException(CustomExceptionType.OTHER_ERROR,"未知异常"));
+        return Result.error(new CustomException(CustomExceptionType.OTHER_ERROR, "未知异常"));
     }
 
 

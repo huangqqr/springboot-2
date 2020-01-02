@@ -457,6 +457,7 @@ public class ArticleExample {
     }
 
     /**
+     *
      */
     public static class Criteria extends GeneratedCriteria {
 

@@ -25,50 +25,50 @@ import javax.validation.Valid;
 public class ArticleRestController {
 
 
-    @ApiOperation(value = "添加文章", notes = "添加新的文章", tags = "Article",httpMethod = "POST")
+    @ApiOperation(value = "添加文章", notes = "添加新的文章", tags = "Article", httpMethod = "POST")
     @ApiResponses({
-            @ApiResponse(code=200,message="成功",response=Result.class),
-            @ApiResponse(code=400,message="用户输入错误",response=Result.class),
-            @ApiResponse(code=500,message="系统内部错误",response=Result.class)
+            @ApiResponse(code = 200, message = "成功", response = Result.class),
+            @ApiResponse(code = 400, message = "用户输入错误", response = Result.class),
+            @ApiResponse(code = 500, message = "系统内部错误", response = Result.class)
     })
     @PostMapping("/article")
     public Result saveArticle(@RequestBody Article article) {
-        log.info("saveArticle：{}",article);
-        return  Result.success(article);
+        log.info("saveArticle：{}", article);
+        return Result.success(article);
     }
 
-    @ApiOperation(value = "删除文章", notes = "删除新的文章", tags = "id",httpMethod = "DELETE")
+    @ApiOperation(value = "删除文章", notes = "删除新的文章", tags = "id", httpMethod = "DELETE")
     @ApiResponses({
-            @ApiResponse(code=200,message="成功",response=Result.class),
-            @ApiResponse(code=400,message="用户输入错误",response=Result.class),
-            @ApiResponse(code=500,message="系统内部错误",response=Result.class)
+            @ApiResponse(code = 200, message = "成功", response = Result.class),
+            @ApiResponse(code = 400, message = "用户输入错误", response = Result.class),
+            @ApiResponse(code = 500, message = "系统内部错误", response = Result.class)
     })
     @DeleteMapping("/article/{id}")
     public Result deleteArticle(@PathVariable Long id) {
-        log.info("deleteArticle：{}",id);
+        log.info("deleteArticle：{}", id);
         return Result.success(id);
     }
 
-    @ApiOperation(value = "修改文章", notes = "修改的文章", tags = "Article",httpMethod = "PUT")
+    @ApiOperation(value = "修改文章", notes = "修改的文章", tags = "Article", httpMethod = "PUT")
     @ApiResponses({
-            @ApiResponse(code=200,message="成功",response=Result.class),
-            @ApiResponse(code=400,message="用户输入错误",response=Result.class),
-            @ApiResponse(code=500,message="系统内部错误",response=Result.class)
+            @ApiResponse(code = 200, message = "成功", response = Result.class),
+            @ApiResponse(code = 400, message = "用户输入错误", response = Result.class),
+            @ApiResponse(code = 500, message = "系统内部错误", response = Result.class)
     })
     @PutMapping("/article/{id}")
     public Result updateArticle(@PathVariable Long id, @Valid @RequestBody Article article) {
         article.setId(id);
-        log.info("updateArticle：{}",article);
+        log.info("updateArticle：{}", article);
         return Result.success(article);
     }
 
-    @ApiOperation(value = "查看文章", notes = "查看的文章", tags = "Article",httpMethod = "GET")
+    @ApiOperation(value = "查看文章", notes = "查看的文章", tags = "Article", httpMethod = "GET")
     @ApiResponses({
-            @ApiResponse(code=200,message="成功",response=Result.class),
-            @ApiResponse(code=400,message="用户输入错误",response=Result.class),
-            @ApiResponse(code=500,message="系统内部错误",response=Result.class)
+            @ApiResponse(code = 200, message = "成功", response = Result.class),
+            @ApiResponse(code = 400, message = "用户输入错误", response = Result.class),
+            @ApiResponse(code = 500, message = "系统内部错误", response = Result.class)
     })
-    @GetMapping( "/article/{id}")
+    @GetMapping("/article/{id}")
     public Result getArticle(@PathVariable Long id) {
         Article article1 = Article.builder().id(1L).author("zimug").content("spring boot 2.深入浅出").title("t1").build();
         System.out.println(article1);

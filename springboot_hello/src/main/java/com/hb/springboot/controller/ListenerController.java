@@ -14,7 +14,9 @@ public class ListenerController {
     @Resource
     ConfigurableApplicationContext applicationContext;
 
-    /**事件的产生方*/
+    /**
+     * 事件的产生方
+     */
     @RequestMapping("/publish")
     public String hello() {
         //TODO 业务处理

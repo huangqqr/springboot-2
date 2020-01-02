@@ -10,7 +10,7 @@ import javax.persistence.Id;
 @Data
 @Entity
 public class Message {
-    
+
     @Id
     @GeneratedValue
     private Long id;

@@ -10,15 +10,14 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import java.io.IOException;
 
-/** 
-* @Description: 过滤器  缺点：没有办法明确去指定执行的顺序
- * @WebFilter(filterName="customFilter",urlPatterns={"/*"})
- * 加注解不要使用FilterRegistration与CustomFilter2
-* @Param:  
-* @return:  
-* @Author: huangbo
-* @Date: 2019/9/15 
-*/
+/**
+ * @Description: 过滤器  缺点：没有办法明确去指定执行的顺序
+ * @WebFilter(filterName="customFilter",urlPatterns={"/*"}) 加注解不要使用FilterRegistration与CustomFilter2
+ * @Param:
+ * @return:
+ * @Author: huangbo
+ * @Date: 2019/9/15
+ */
 //注册器名称为customFilter,拦截的url为所有
 //@WebFilter(filterName="customFilter",urlPatterns={"/*"})
 @Slf4j

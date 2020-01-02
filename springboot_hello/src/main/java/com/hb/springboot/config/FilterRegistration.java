@@ -5,14 +5,14 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import javax.servlet.Filter;
-/** 
-* @Description: 过滤器  代码的注册与CustomFilter2一起使用
 
-* @Param:  
-* @return:  
-* @Author: huangbo
-* @Date: 2019/9/15 
-*/
+/**
+ * @Description: 过滤器  代码的注册与CustomFilter2一起使用
+ * @Param:
+ * @return:
+ * @Author: huangbo
+ * @Date: 2019/9/15
+ */
 @Configuration
 public class FilterRegistration {
     @Bean

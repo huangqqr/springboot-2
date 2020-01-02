@@ -37,14 +37,14 @@ public class MailEventListener implements ApplicationListener<MailEvent> {
     public void onApplicationEvent(MailEvent mailEvent) {
         MailEntity entity = mailEvent.getMailEntity();
         Context context = new Context();
-        context.setVariable("username",receptionMailAddr);
-        context.setVariable("name",entity.getClass().getName());
-        context.setVariable("code",entity.getCode());
+        context.setVariable("username", receptionMailAddr);
+        context.setVariable("name", entity.getClass().getName());
+        context.setVariable("code", entity.getCode());
         String send = String.valueOf(context);
         //格式化时间
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日 HH时mm分ss秒");
-        context.setVariable("occurredTime",sdf.format(new Date()));
-        sendMail.sendTextMail(receptionMailAddr,"Hello Word",send);
+        context.setVariable("occurredTime", sdf.format(new Date()));
+        sendMail.sendTextMail(receptionMailAddr, "Hello Word", send);
 
         log.info("名称：" + entity.getName() + " 状态：" + entity.getCode());
     }

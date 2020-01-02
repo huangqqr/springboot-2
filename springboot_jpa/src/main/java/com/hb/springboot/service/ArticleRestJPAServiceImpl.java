@@ -31,7 +31,7 @@ public class ArticleRestJPAServiceImpl implements ArticleRestService {
     @Transactional
     public ArticleVO saveArticle(ArticleVO article) {
 
-        Article articlePO = dozerMapper.map(article,Article.class);
+        Article articlePO = dozerMapper.map(article, Article.class);
         articleRepository.save(articlePO);
 
         Message message = new Message();
@@ -40,7 +40,7 @@ public class ArticleRestJPAServiceImpl implements ArticleRestService {
         messageRepository.save(message);
         //手动设置异常测试回滚
         //int i = 1/0;
-        return  article;
+        return article;
     }
 
     @Override
@@ -50,7 +50,7 @@ public class ArticleRestJPAServiceImpl implements ArticleRestService {
 
     @Override
     public void updateArticle(ArticleVO article) {
-        Article articlePO = dozerMapper.map(article,Article.class);
+        Article articlePO = dozerMapper.map(article, Article.class);
         articleRepository.save(articlePO);
     }
 
@@ -58,7 +58,7 @@ public class ArticleRestJPAServiceImpl implements ArticleRestService {
     public ArticleVO getArticle(Long id) {
         Optional<Article> article = articleRepository.findById(id);
         //把读者查出来
-        ArticleVO articleVO = dozerMapper.map(article.get(),ArticleVO.class);
+        ArticleVO articleVO = dozerMapper.map(article.get(), ArticleVO.class);
         //articleVO.setReader();
         return articleVO;
     }
@@ -67,7 +67,7 @@ public class ArticleRestJPAServiceImpl implements ArticleRestService {
     public List<ArticleVO> getAll() {
         List<Article> articleLis = articleRepository.findAll();
 
-        return DozerUtils.mapList(articleLis,ArticleVO.class);
+        return DozerUtils.mapList(articleLis, ArticleVO.class);
 
     }
 }

@@ -53,7 +53,7 @@ public class ArticleRestControllerTest3 {
 
 
         ObjectMapper objectMapper = new ObjectMapper();
-        Article articleObj = objectMapper.readValue(article,Article.class);
+        Article articleObj = objectMapper.readValue(article, Article.class);
 
         //打桩
         when(articleRestService.saveArticle(articleObj)).thenReturn("ok");

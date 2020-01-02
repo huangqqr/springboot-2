@@ -23,7 +23,7 @@ import java.util.Map;
 //        basePackages= { "com.hb.springboot.dao.jpa1" }) //设置Repository所在位置
 public class JPAPrimaryConfig {
 
- 
+
     @Resource
     @Qualifier("primaryDataSource")
     private DataSource primaryDataSource;
@@ -34,11 +34,10 @@ public class JPAPrimaryConfig {
         return entityManagerFactoryPrimary(builder).getObject().createEntityManager();
     }
 
-  
 
     @Primary
     @Bean(name = "entityManagerFactoryPrimary")
-    public LocalContainerEntityManagerFactoryBean entityManagerFactoryPrimary (EntityManagerFactoryBuilder builder) {
+    public LocalContainerEntityManagerFactoryBean entityManagerFactoryPrimary(EntityManagerFactoryBuilder builder) {
 
         return builder
                 .dataSource(primaryDataSource)
@@ -48,7 +47,6 @@ public class JPAPrimaryConfig {
                 .build();
     }
 
-  
 
     @Resource
     private JpaProperties jpaProperties;
@@ -57,7 +55,6 @@ public class JPAPrimaryConfig {
         return jpaProperties.getHibernateProperties(new HibernateSettings());
     }
 
-  
 
     @Primary
     @Bean(name = "transactionManagerPrimary")

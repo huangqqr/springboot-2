@@ -8,7 +8,9 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class MyListener2 implements ApplicationListener<MyEvent> {
 
-    /**事件的消费方*/
+    /**
+     * 事件的消费方
+     */
     public void onApplicationEvent(MyEvent event) {
         try {
             Thread.sleep(5000);

@@ -10,12 +10,12 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /*** 
-* @Description: servlet
-* @Param:  
-* @return:  
-* @Author: huangbo
-* @Date: 2019/9/15 
-*/
+ * @Description: servlet
+ * @Param:
+ * @return:
+ * @Author: huangbo
+ * @Date: 2019/9/15
+ */
 @WebServlet(name = "firstServlet", urlPatterns = "/firstServlet") //标记为servlet，以便启动器扫描。
 @Slf4j
 public class FirstServlet extends HttpServlet {

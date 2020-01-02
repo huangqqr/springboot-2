@@ -1,13 +1,12 @@
 package com.hb.springboot.config;
 
 /**
+ * @author YangLong [11208@leapmotor.com]
+ * @version V1.0
  * @Package com.leapmotor.app.api.manager.config
  * @ClassName: SwaggerConfig
  * @Description:
- * @author YangLong [11208@leapmotor.com]
  * @date 2019-04-09
- *
- * @version V1.0
  */
 //@Configuration
 //@EnableSwagger2

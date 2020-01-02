@@ -2,6 +2,7 @@ package com.hb.springboot.config;
 
 /**
  * 使用Java类完成配置文件
+ *
  * @author zc 2018-06-04
  */
 //@Configuration

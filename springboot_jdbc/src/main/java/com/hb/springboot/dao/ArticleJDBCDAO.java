@@ -28,7 +28,7 @@ public class ArticleJDBCDAO {
     //删除文章
     public void deleteById(Long id) {
         //jdbcTemplate.update适合于insert 、update和delete操作；
-        jdbcTemplate.update("DELETE FROM article WHERE id = ?",new Object[]{id});
+        jdbcTemplate.update("DELETE FROM article WHERE id = ?", new Object[]{id});
 
     }
 
@@ -52,9 +52,9 @@ public class ArticleJDBCDAO {
     }
 
     //查询所有
-    public List<Article> findAll(){
+    public List<Article> findAll() {
         //query用于查询结果列表
-        return (List<Article>) jdbcTemplate.query("SELECT * FROM article ",  new BeanPropertyRowMapper(Article.class));
+        return (List<Article>) jdbcTemplate.query("SELECT * FROM article ", new BeanPropertyRowMapper(Article.class));
     }
 
 

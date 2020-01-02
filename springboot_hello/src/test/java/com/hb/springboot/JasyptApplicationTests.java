@@ -15,8 +15,8 @@ public class JasyptApplicationTests {
     @Autowired
     private StringEncryptor stringEncryptor;
 
-	@Test
-	public void contextLoads() {
+    @Test
+    public void contextLoads() {
         BasicTextEncryptor encryptor = new BasicTextEncryptor();
         //加密方法
         System.out.println(stringEncryptor.encrypt("root"));
@@ -25,6 +25,6 @@ public class JasyptApplicationTests {
 
         System.out.println(stringEncryptor.decrypt("uaNBj4ZmzCD83uedRYUXqQ=="));
         //System.out.println(stringEncryptor.decrypt("oKBQENfbbQiMyPvECAgPGA=="));
-	}
+    }
 
 }

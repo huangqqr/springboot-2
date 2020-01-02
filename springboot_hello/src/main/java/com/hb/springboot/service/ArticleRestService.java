@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class ArticleRestService {
 
-    public String saveArticle( Article article) {
-        log.info("saveArticle：{}",article);
-        return  "测试";
+    public String saveArticle(Article article) {
+        log.info("saveArticle：{}", article);
+        return "测试";
     }
 }

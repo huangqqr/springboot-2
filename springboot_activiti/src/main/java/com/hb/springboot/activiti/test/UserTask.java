@@ -9,7 +9,7 @@ import org.activiti.engine.delegate.TaskListener;
  * @create: 2019-09-11 15:04
  **/
 
-public class UserTask  implements TaskListener {
+public class UserTask implements TaskListener {
     @Override
     public void notify(DelegateTask delegateTask) {
 

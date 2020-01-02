@@ -10,7 +10,7 @@ public class AjaxResponse {
 
     @ApiModelProperty("是否请求成功")
     private boolean isok;
-    private int code;   
+    private int code;
     private String message;
     private Object data;
 

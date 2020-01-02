@@ -13,7 +13,7 @@ import java.util.List;
 
 @Slf4j
 @Service
-public class ArticleMybatisRestServiceImpl implements ArticleRestService{
+public class ArticleMybatisRestServiceImpl implements ArticleRestService {
 
     @Resource
     protected Mapper dozerMapper;
@@ -24,7 +24,7 @@ public class ArticleMybatisRestServiceImpl implements ArticleRestService{
 
     @Override
     public ArticleVO saveArticle(ArticleVO article) {
-        Article articlePO = dozerMapper.map(article,Article.class);
+        Article articlePO = dozerMapper.map(article, Article.class);
         articleMapper.insert(articlePO);
         return null;
     }
@@ -36,19 +36,19 @@ public class ArticleMybatisRestServiceImpl implements ArticleRestService{
 
     @Override
     public void updateArticle(ArticleVO article) {
-        Article articlePO = dozerMapper.map(article,Article.class);
+        Article articlePO = dozerMapper.map(article, Article.class);
         articleMapper.updateByPrimaryKeySelective(articlePO);
     }
 
     @Override
     public ArticleVO getArticle(Long id) {
-        return dozerMapper.map(articleMapper.selectByPrimaryKey(id),ArticleVO.class);
+        return dozerMapper.map(articleMapper.selectByPrimaryKey(id), ArticleVO.class);
     }
 
     @Override
     public List<ArticleVO> getAll() {
         List<Article> articles = articleMapper.selectByExample(null);
-        return DozerUtils.mapList(articles,ArticleVO.class);
+        return DozerUtils.mapList(articles, ArticleVO.class);
 
     }
 }

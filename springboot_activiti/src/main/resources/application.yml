@@ -1,9 +1,9 @@
 spring:
-#  activiti:
-#    check-process-definitions: false
-#    database-schema-update: true
-#    process-definition-location-prefix: classpath:/processes/
-#    history-level: full
+  #  activiti:
+  #    check-process-definitions: false
+  #    database-schema-update: true
+  #    process-definition-location-prefix: classpath:/processes/
+  #    history-level: full
   profiles:
     active: dev
   jackson:

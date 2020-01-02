@@ -30,7 +30,7 @@ public class TransactionManagerConfig {
     }
 
     @Bean(name = "transactionManager")
-    @DependsOn({ "userTransaction", "atomikosTransactionManager" })
+    @DependsOn({"userTransaction", "atomikosTransactionManager"})
     public PlatformTransactionManager transactionManager() throws Throwable {
         UserTransaction userTransaction = userTransaction();
 

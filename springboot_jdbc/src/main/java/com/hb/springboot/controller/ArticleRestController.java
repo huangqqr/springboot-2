@@ -25,54 +25,58 @@ import javax.annotation.Resource;
 @RequestMapping("/rest")
 public class ArticleRestController {
 
-    @Resource(name="articleRestJDBCServiceImpl")
+    @Resource(name = "articleRestJDBCServiceImpl")
     ArticleRestService articleRestService;
 
 
-    @ApiOperation(value = "添加文章", notes = "添加新的文章", tags = "Article",httpMethod = "POST")
+    @ApiOperation(value = "添加文章", notes = "添加新的文章", tags = "Article", httpMethod = "POST")
     @ApiResponses({
-            @ApiResponse(code=200,message="成功",response= AjaxResponse.class),
-            @ApiResponse(code=400,message="用户输入错误",response=AjaxResponse.class),
-            @ApiResponse(code=500,message="系统内部错误",response=AjaxResponse.class)
+            @ApiResponse(code = 200, message = "成功", response = AjaxResponse.class),
+            @ApiResponse(code = 400, message = "用户输入错误", response = AjaxResponse.class),
+            @ApiResponse(code = 500, message = "系统内部错误", response = AjaxResponse.class)
     })
     //@RequestMapping(value = "/article", method = POST, produces = "application/json")
     @PostMapping("/article")
     public @ResponseBody
     AjaxResponse saveArticle(@RequestBody Article article) {
         log.info("articleRestService return :" + articleRestService.saveArticle(article));
-        return  AjaxResponse.success(article);
+        return AjaxResponse.success(article);
     }
- 
+
     //@RequestMapping(value = "/article/{id}", method = DELETE, produces = "application/json")
     @DeleteMapping("/article/{id}")
-    public @ResponseBody AjaxResponse deleteArticle(@PathVariable Long id) {
+    public @ResponseBody
+    AjaxResponse deleteArticle(@PathVariable Long id) {
 
         articleRestService.deleteArticle(id);
 
         return AjaxResponse.success(id);
     }
- 
+
     //@RequestMapping(value = "/article/{id}", method = PUT, produces = "application/json")
     @PutMapping("/article/{id}")
-    public @ResponseBody AjaxResponse updateArticle(@PathVariable Long id, @RequestBody Article article) {
+    public @ResponseBody
+    AjaxResponse updateArticle(@PathVariable Long id, @RequestBody Article article) {
         article.setId(id);
 
         articleRestService.updateArticle(article);
 
         return AjaxResponse.success(article);
     }
- 
+
     //@RequestMapping(value = "/article/{id}", method = GET, produces = "application/json")
-    @GetMapping( "/article/{id}")
-    public @ResponseBody  AjaxResponse getArticle(@PathVariable Long id) {
+    @GetMapping("/article/{id}")
+    public @ResponseBody
+    AjaxResponse getArticle(@PathVariable Long id) {
 
         return AjaxResponse.success(articleRestService.getArticle(id));
     }
 
 
     //@RequestMapping(value = "/article", method = GET, produces = "application/json")
-    @GetMapping( "/article")
-    public @ResponseBody  AjaxResponse getAllArticle() {
+    @GetMapping("/article")
+    public @ResponseBody
+    AjaxResponse getAllArticle() {
 
         return AjaxResponse.success(articleRestService.getAll());
     }

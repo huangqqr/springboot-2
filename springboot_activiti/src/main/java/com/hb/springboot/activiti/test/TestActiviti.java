@@ -30,7 +30,7 @@ import java.util.Map;
  * @create: 2019-09-11 14:09
  **/
 
-@JsonIgnoreProperties(value = { "handler" })
+@JsonIgnoreProperties(value = {"handler"})
 @RestController
 @RequestMapping("/work")
 public class TestActiviti {
@@ -73,15 +73,17 @@ public class TestActiviti {
         System.out.println("部署名称：" + deployment.getName());//helloworld入门程序
     }
 
-    /**启动流程实例*/
+    /**
+     * 启动流程实例
+     */
     @RequestMapping(value = "/star", method = RequestMethod.GET)
-    public void startProcessInstance(){
+    public void startProcessInstance() {
         //流程定义的key
         String processDefinitionKey = "xx";
         ProcessInstance pi = processEngine.getRuntimeService()//与正在执行的流程实例和执行对象相关的Service
                 .startProcessInstanceByKey(processDefinitionKey);//使用流程定义的key启动流程实例，key对应helloworld.bpmn文件中id的属性值，使用key值启动，默认是按照最新版本的流程定义启动
-        System.out.println("流程实例ID:"+pi.getId());//流程实例ID    101
-        System.out.println("流程定义ID:"+pi.getProcessDefinitionId());//流程定义ID   helloworld:1:4
+        System.out.println("流程实例ID:" + pi.getId());//流程实例ID    101
+        System.out.println("流程定义ID:" + pi.getProcessDefinitionId());//流程定义ID   helloworld:1:4
     }
 
     /**
@@ -97,14 +99,14 @@ public class TestActiviti {
         List<Task> list = taskService.createTaskQuery().taskCandidateUser(candidateUser).list();
         List<Map<String, Object>> listMap = new ArrayList<>();
         // 循环
-        String[] ps = { "name", "id", "processInstanceId","executionId" };
+        String[] ps = {"name", "id", "processInstanceId", "executionId"};
         for (Task task : list) {
             Map<String, Object> map = CommUtil.obj2map(task, ps);
             listMap.add(map);
         }
         return listMap;
-    //}
-    //    return list;
+        //}
+        //    return list;
     }
 
 
@@ -114,8 +116,8 @@ public class TestActiviti {
         // 目标类
         List<ProcessDefinition> list = processDefinitionQuery.list();
         // 循环
-        String[] ps = { "id", "name", "version", "key", "diagramResourceName", "resourceName", "deploymentId",
-                "suspensionState" };
+        String[] ps = {"id", "name", "version", "key", "diagramResourceName", "resourceName", "deploymentId",
+                "suspensionState"};
         for (ProcessDefinition pd : list) {
             Map<String, Object> map = CommUtil.obj2map(pd, ps);
             listMap.add(map);

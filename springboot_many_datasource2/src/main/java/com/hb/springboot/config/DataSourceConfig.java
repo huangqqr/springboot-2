@@ -13,7 +13,7 @@ import javax.sql.DataSource;
 @Configuration
 public class DataSourceConfig {
 
-    @Bean(initMethod="init", destroyMethod="close", name="primaryDataSource")
+    @Bean(initMethod = "init", destroyMethod = "close", name = "primaryDataSource")
     @Primary
     @ConfigurationProperties(prefix = "primarydb")
     public DataSource primaryDataSource() {
@@ -21,9 +21,9 @@ public class DataSourceConfig {
     }
 
     //jta数据源1
-    @Bean(initMethod="init", destroyMethod="close", name="secondaryDataSource")
+    @Bean(initMethod = "init", destroyMethod = "close", name = "secondaryDataSource")
     @ConfigurationProperties(prefix = "secondarydb")
-    public DataSource secondaryDataSource()  {
+    public DataSource secondaryDataSource() {
         return new AtomikosDataSourceBean();
     }
 

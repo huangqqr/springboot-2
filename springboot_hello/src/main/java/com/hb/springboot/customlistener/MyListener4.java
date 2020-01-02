@@ -5,8 +5,8 @@ import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
 /**
-* 要在方法上添加@EventListener注解
-*/
+ * 要在方法上添加@EventListener注解
+ */
 @Slf4j
 @Component
 public class MyListener4 {

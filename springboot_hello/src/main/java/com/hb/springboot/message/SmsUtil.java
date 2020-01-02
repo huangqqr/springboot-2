@@ -21,22 +21,22 @@ public class SmsUtil {
     static final String product = "Dysmsapi";
     //产品域名,开发者无需替换
     static final String domain = "dysmsapi.aliyuncs.com";
- 
+
     // TODO 此处需要替换成开发者自己的AK(在阿里云访问控制台寻找)
     static final String accessKeyId = "LTAI4FtPe7vELJmJTzCPh6qw";
     static final String accessKeySecret = "bYkG14Cb9Vt7m9JjKcCxDsHWIWAalf";
- 
+
     public static SendSmsResponse sendSms() throws ClientException {
- 
+
         //可自助调整超时时间
         System.setProperty("sun.net.client.defaultConnectTimeout", "10000");
         System.setProperty("sun.net.client.defaultReadTimeout", "10000");
- 
+
         //初始化acsClient,暂不支持region化
         IClientProfile profile = DefaultProfile.getProfile("cn-hangzhou", accessKeyId, accessKeySecret);
         DefaultProfile.getProfile("cn-hangzhou", "cn-hangzhou", product, domain);
         IAcsClient acsClient = new DefaultAcsClient(profile);
- 
+
         //组装请求对象-具体描述见控制台-文档部分内容
         SendSmsRequest request = new SendSmsRequest();
         //必填:待发送手机号
@@ -48,31 +48,31 @@ public class SmsUtil {
         //可选:模板中的变量替换JSON串,如模板内容为"亲爱的${name},您的验证码为${code}"时,此处的值为
         request.setTemplateParam("{\"code\":\"123\"}");
         request.setTemplateParam("{\"name\":\"哈喽\"}");
- 
+
         //选填-上行短信扩展码(无特殊需求用户请忽略此字段)
         //request.setSmsUpExtendCode("90997");
- 
+
         //可选:outId为提供给业务方扩展字段,最终在短信回执消息中将此值带回给调用者
         //request.setOutId("yourOutId");
- 
+
         //hint 此处可能会抛出异常，注意catch
         SendSmsResponse sendSmsResponse = acsClient.getAcsResponse(request);
- 
+
         return sendSmsResponse;
     }
- 
- 
+
+
     public static QuerySendDetailsResponse querySendDetails(String bizId) throws ClientException {
- 
+
         //可自助调整超时时间
         System.setProperty("sun.net.client.defaultConnectTimeout", "10000");
         System.setProperty("sun.net.client.defaultReadTimeout", "10000");
- 
+
         //初始化acsClient,暂不支持region化
         IClientProfile profile = DefaultProfile.getProfile("cn-hangzhou", accessKeyId, accessKeySecret);
         DefaultProfile.getProfile("cn-hangzhou", "cn-hangzhou", product, domain);
         IAcsClient acsClient = new DefaultAcsClient(profile);
- 
+
         //组装请求对象
         QuerySendDetailsRequest request = new QuerySendDetailsRequest();
         //必填-号码
@@ -86,13 +86,13 @@ public class SmsUtil {
         request.setPageSize(10L);
         //必填-当前页码从1开始计数
         request.setCurrentPage(1L);
- 
+
         //hint 此处可能会抛出异常，注意catch
         QuerySendDetailsResponse querySendDetailsResponse = acsClient.getAcsResponse(request);
- 
+
         return querySendDetailsResponse;
     }
- 
+
     public static void main(String[] args) throws ClientException, InterruptedException {
         CommonRequest request = new CommonRequest();
 
@@ -128,6 +128,6 @@ public class SmsUtil {
         //    System.out.println("TotalCount=" + querySendDetailsResponse.getTotalCount());
         //    System.out.println("RequestId=" + querySendDetailsResponse.getRequestId());
         //}
- 
+
     }
 }

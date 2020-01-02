@@ -11,9 +11,9 @@ import java.util.Arrays;
 public class BeanRunner {
     @Bean
     @Order(1)
-    public CommandLineRunner runner1(){
+    public CommandLineRunner runner1() {
         return new CommandLineRunner() {
-            public void run(String... args){
+            public void run(String... args) {
                 System.out.println("CommandLineRunner run1()" + Arrays.toString(args));
             }
         };
@@ -21,9 +21,9 @@ public class BeanRunner {
 
     @Bean
     @Order(2)
-    public CommandLineRunner runner2(){
+    public CommandLineRunner runner2() {
         return new CommandLineRunner() {
-            public void run(String... args){
+            public void run(String... args) {
                 System.out.println("CommandLineRunner run2()" + Arrays.toString(args));
             }
         };
@@ -31,9 +31,9 @@ public class BeanRunner {
 
     @Bean
     @Order(3)
-    public CommandLineRunner runner3(){
+    public CommandLineRunner runner3() {
         return new CommandLineRunner() {
-            public void run(String... args){
+            public void run(String... args) {
                 System.out.println("CommandLineRunner run3()" + Arrays.toString(args));
             }
         };

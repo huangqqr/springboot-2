@@ -11,13 +11,16 @@ import org.springframework.context.ApplicationEvent;
 
 public class MailEvent extends ApplicationEvent {
     private MailEntity mailEntity;
-    /**事件*/
+
+    /**
+     * 事件
+     */
     public MailEvent(Object source, MailEntity mailEntity) {
         super(source);
         this.mailEntity = mailEntity;
     }
 
-    public MailEntity getMailEntity(){
+    public MailEntity getMailEntity() {
         return this.mailEntity;
     }
 }
